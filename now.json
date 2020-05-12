@@ -1,0 +1,7 @@
+{
+    "build": {
+        "env": {
+            "EMAIL_KEY": "@email-key"
+        }
+    }
+}
