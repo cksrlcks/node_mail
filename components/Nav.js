@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ActiveLink from './activeLink';
+import ActiveLink from './ActiveLink';
 import styled from 'styled-components';
 const Nav = () => {
     return (

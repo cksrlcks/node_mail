@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 import styled from 'styled-components';
-
+import axios from 'axios';
 const useInput = (defaultValue) => {
     const [value, setValue] = useState(defaultValue);
     const onChange = (e) => {
@@ -26,18 +26,27 @@ export default function Home() {
     const submitEmail = (content) => {
         setResultMsg('sending...');
         setIsSending(true);
-        fetch('/api/contact', {
-            method: 'post',
-            headers: {
-                Accept: 'application/json, text/plain, */*',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        }).then((res) => {
-            setResultMsg('success');
-            setTimeout(setIsSending(false), 5000);
-            res.status === 200 ? console.log('success') : alert('error');
-        });
+        axios
+            .post('http://localhost:3000/api/contact', {
+                headers: {
+                    Accept: 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            // fetch('/api/contact', {
+            //     method: 'post',
+            //     headers: {
+            //         Accept: 'application/json, text/plain, */*',
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(data),
+            // })
+            .then((res) => {
+                setResultMsg('success');
+                setTimeout(setIsSending(false), 5000);
+                res.status === 200 ? console.log('success') : alert('error');
+            });
     };
     const handleForm = (e) => {
         e.preventDefault();
