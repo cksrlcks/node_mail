@@ -26,27 +26,18 @@ export default function Home() {
     const submitEmail = (content) => {
         setResultMsg('sending...');
         setIsSending(true);
-        axios
-            .post('http://localhost:3000/api/contact', {
-                headers: {
-                    Accept: 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            // fetch('/api/contact', {
-            //     method: 'post',
-            //     headers: {
-            //         Accept: 'application/json, text/plain, */*',
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(data),
-            // })
-            .then((res) => {
-                setResultMsg('success');
-                setTimeout(setIsSending(false), 5000);
-                res.status === 200 ? console.log('success') : alert('error');
-            });
+        fetch('/api/contact', {
+            method: 'post',
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).then((res) => {
+            setResultMsg('success');
+            setTimeout(setIsSending(false), 5000);
+            res.status === 200 ? console.log('success') : alert('error');
+        });
     };
     const handleForm = (e) => {
         e.preventDefault();

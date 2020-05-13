@@ -15,6 +15,11 @@ const Nav = () => {
                         <a>Contact</a>
                     </ActiveLink>
                 </li>
+                <li>
+                    <ActiveLink href="/posts" activeClassName="active">
+                        <a>Posts</a>
+                    </ActiveLink>
+                </li>
             </ul>
         </GnbBlock>
     );
@@ -29,6 +34,9 @@ const GnbBlock = styled.nav`
         align-items: center;
         li {
             margin-right: 1.4em;
+            & .active {
+                color: #1a73eb;
+            }
         }
     }
 `;
