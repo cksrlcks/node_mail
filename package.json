@@ -16,7 +16,7 @@
         "global": "^4.4.0",
         "isomorphic-fetch": "^2.2.1",
         "next": "9.3.6",
-        "nodemailer": "^6.4.6",
+        "nodemailer": "^6.4.16",
         "nodemon": "^2.0.3",
         "now": "^19.0.1",
         "now-cli": "^0.0.0",
